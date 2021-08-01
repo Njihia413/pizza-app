@@ -2,12 +2,12 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!-<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pazzaro Eats</title>
+        <title>Pizzaro Eats</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Bootstrap CSS-->
@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <script src="js/index.js" async defer></script>
         <!--navigation section-->
         <div class="navigation-container">
             <div class="navigation-content">
@@ -103,7 +102,7 @@
                 <div class="order-section" id="order-section">
                     <div class="container">
                         <div class="row">
-                            <h2>Place a Pizza <span id="h2">Order</span> Here</h2>
+                            <h2>Place your Pizza <span id="h2">Order</span> Here</h2>
                             <div class="col-md-6">
                                 <form id="order-form">
                                     <div class="form-group">
@@ -143,21 +142,21 @@
                                             <div class="col-md-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="toppings[]" type="checkbox" id="SweetCorn" value="SweetCorn">
-                                                    <label class="form-check-label" for="SweetCorn">Sweet Corn</label>
+                                                    <label class="form-check-label" for="SweetCorn">Sweet Corn @50/=</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="toppings[]" type="checkbox" id="Mozzarella" value="Mozzarella">
-                                                    <label class="form-check-label" for="Mozzarella">Mozzarella</label>
+                                                    <label class="form-check-label" for="Mozzarella">Mozzarella @100/=</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="toppings[]" type="checkbox" id="Sausage" value="Sausage">
-                                                    <label class="form-check-label" for="Sausage">Sausage</label>
+                                                    <label class="form-check-label" for="Sausage">Sausage @150/=</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,10 +168,36 @@
                                     </div>
                                 </form>
                             </div>
+
+                            <div class="col-md-6">
+                                <table class="table table-responsive order-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Flavor</th>
+                                            <th>Size</th>
+                                            <th>Crust</th>
+                                            <th>Topping</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="empty-cart text-center">
+                                                <img src="images/cart.png" alt="Cart Image">
+                                                <br>
+                                                Cart is Empty
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--Custom JS-->
+        <script src="js/index.js" async defer></script>
     </body>
 </html>
