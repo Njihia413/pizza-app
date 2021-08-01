@@ -164,7 +164,7 @@ a {
 .text {
     background-color: #f1f1f1;
     border-radius: 20px;
-    width: 250px;
+    width: 350px;
     height: 35px;
     display: flex;
     justify-content:space-around;
@@ -275,8 +275,8 @@ a {
     border: none;
     background-color: #ea272d;
     outline: none;
-    width: 70px;
-    height: 35px;
+    width: 90px;
+    height: 50px;
     border-radius: 20px;
     box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
     margin: 40px;
@@ -287,4 +287,95 @@ a {
 button:active {
     transform: scale(1.2);
     transition: all ease ease-in 0.5s;
+}
+
+form {
+    display: block;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: calibri;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#h2 {
+    color: #f9a609;
+}
+.form-control {
+    display:block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: calibri;
+    line-height: 1.5;
+    color: #ea272d;
+    background-color: #FFFFFF;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+label {
+    font-size: 20px;
+    color: #f9a609;
+    padding: 0px;
+    line-height: 35px;
+}
+
+#toppings {
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: calibri;
+}
+
+.form-check {
+    display: block;
+}
+
+.form-check-input:checked {
+    background-color: #ea272d;
+    border-color: #ea272d;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: .25em;
+}
+
+.form-check-input {
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0,0,0,.25);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+
+.form-button {
+        color: #FFFFFF;
+        border: none;
+        background-color: #ea272d;
+        outline: none;
+        width: 150px;
+        height: 50px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+        margin-left: 3px;
+        padding: 0px;
+        text-transform: uppercase;
 }
