@@ -5,11 +5,7 @@
 This is a simple pizza web app that allows customers to place an order for their preferred pizza:
 * Flavor
 * Size
-<<<<<<< HEAD
 * Crust 
-=======
-* Crust
->>>>>>> main
 * Toppings
 # Setup/Installation Requirements
 # Git
@@ -17,7 +13,6 @@ This is a simple pizza web app that allows customers to place an order for their
 # Github
 * Create a Github account: https://github.com
 * Create a Github repository
-<<<<<<< HEAD
 * Copy the link to this repository
 * Clone it to your local machine
 * Use a suitable code editor to view the project live: code.visualstudio.com
@@ -28,18 +23,9 @@ There are no known bugs of this project at the moment
 # Technologies Used
 * HTML
 * CSS
-* JS
+* JavaScript
 * Bootstrap
 * jQuery
-# Support and contact details
-=======
-* Copy the link of this repository
-* Clone it to your local machine
-* Use a suitable code editor to view the live site: code.visualstudio.com
-# Web Browser
-* Chrome or Firefox
-# Known Bugs
-* There are no known bugs of this project at the moment
 # Technologies Used
 * HTML
 * CSS
@@ -48,8 +34,7 @@ There are no known bugs of this project at the moment
 * jQuery
 # Link to Live Website
 Link: https://Njihia413.github.io/pizza-app/
-## Support and contact details
->>>>>>> main
+# Support and contact details
 For any contributions towards this project:
 * Email: maureennjihia468@gmail.com
 * Phone: 0704592362
