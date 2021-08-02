@@ -5,7 +5,11 @@
 This is a simple pizza web app that allows customers to place an order for their preferred pizza:
 * Flavor
 * Size
+<<<<<<< HEAD
 * Crust 
+=======
+* Crust
+>>>>>>> main
 * Toppings
 # Setup/Installation Requirements
 # Git
@@ -13,6 +17,7 @@ This is a simple pizza web app that allows customers to place an order for their
 # Github
 * Create a Github account: https://github.com
 * Create a Github repository
+<<<<<<< HEAD
 * Copy the link to this repository
 * Clone it to your local machine
 * Use a suitable code editor to view the project live: code.visualstudio.com
@@ -27,6 +32,24 @@ There are no known bugs of this project at the moment
 * Bootstrap
 * jQuery
 # Support and contact details
+=======
+* Copy the link of this repository
+* Clone it to your local machine
+* Use a suitable code editor to view the live site: code.visualstudio.com
+# Web Browser
+* Chrome or Firefox
+# Known Bugs
+* There are no known bugs of this project at the moment
+# Technologies Used
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
+* jQuery
+# Link to Live Website
+Link: https://Njihia413.github.io/pizza-app/
+## Support and contact details
+>>>>>>> main
 For any contributions towards this project:
 * Email: maureennjihia468@gmail.com
 * Phone: 0704592362
@@ -39,6 +62,10 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
+<<<<<<< HEAD
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   
+=======
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>>>>>>> main
