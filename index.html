@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="order">
-                            <a href="#"><span id="order">ORDER</span> ONLINE</a>
+                            <a href="#order-section"><span id="order">ORDER</span> ONLINE</a>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                             <P>TIKKA</P>
                         </div>
                         <div class="details">
-                           <button>ORDER NOW</button> 
+                           <a href='#order-section'><button>ORDER NOW</button></a>
                         </div> 
                     </div>
                     <div class="food-2">
@@ -85,7 +85,7 @@
                             <P>CHICKEN</P>
                         </div>
                         <div class="details">
-                           <button>ORDER NOW</button> 
+                            <a href='#order-section'><button>ORDER NOW</button></a>
                         </div> 
                     </div>
                     <div class="food-3">
@@ -94,7 +94,7 @@
                             <p>SPECIAL</p>
                         </div>
                         <div class="details">
-                           <button>ORDER NOW</button> 
+                            <a href='#order-section'><button>ORDER NOW</button></a>
                         </div> 
                     </div>
                 </div>
@@ -109,20 +109,20 @@
                                         <label for>Select Pizza Flavor<span class="text-danger">*</span></label>
                                         <select class="form-control" id="pizza" name="pizza">
                                             <option value selected disabled>Select Pizza Flavor</option>
-                                            <option value="Grilled Chicken Winter">Grilled Chicken Winter</option>
+                                            <!--<option value="Grilled Chicken Winter">Grilled Chicken Winter</option>
                                             <option value="Corn Starch Tikka">Corn Starch Tikka</option>
                                             <option value="Smoked Hawaiian Chicken">Smoked Hawaiian Chicken</option>
                                             <option value="Veggie Special">Veggie Special</option>
-                                            <option value=" Bacon Barbeque Steak">Bacon Barbeque Steak</option>
+                                            <option value=" Bacon Barbeque Steak">Bacon Barbeque Steak</option>-->
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for>Size<span class="text-danger">*</span></label>
                                         <select class="form-control" id="size" name="size">
                                             <option value selected disabled>Select Pizza Size</option>
-                                            <option value="small">Small @650/=</option>
+                                            <!--option value="small">Small @650/=</option>
                                             <option value="small">Medium @850/=</option>
-                                            <option value="small">Large @1050/=</option>
+                                            <option value="small">Large @1050/=</option>-->
                                         </select>
                                     </div>
 
@@ -130,33 +130,33 @@
                                         <label for>Crust<span class="text-danger">*</span></label>
                                         <select class="form-control" id="crust" name="crust">
                                             <option value selected disabled>Select Crust</option>
-                                            <option value="crispy">Crispy @150/=</option>
+                                            <!--<option value="crispy">Crispy @150/=</option>
                                             <option value="stuffed">Stuffed @200/=</option>
-                                            <option value="gluten free">Gluten Free @100/=</option>
+                                            <option value="gluten free">Gluten Free @100/=</option>-->
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <p id="toppings">Select your preferred toppings</p>
+                                        <p id="toppings">Select your preferred toppings @100/= each</p>
                                         <div class="row-toppings">
                                             <div class="col-md-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="toppings[]" type="checkbox" id="SweetCorn" value="SweetCorn">
-                                                    <label class="form-check-label" for="SweetCorn">Sweet Corn @50/=</label>
+                                                    <label class="form-check-label" for="SweetCorn">Sweet Corn</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="toppings[]" type="checkbox" id="Mozzarella" value="Mozzarella">
-                                                    <label class="form-check-label" for="Mozzarella">Mozzarella @100/=</label>
+                                                    <label class="form-check-label" for="Mozzarella">Mozzarella</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="toppings[]" type="checkbox" id="Sausage" value="Sausage">
-                                                    <label class="form-check-label" for="Sausage">Sausage @150/=</label>
+                                                    <label class="form-check-label" for="Sausage">Sausage</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,9 +223,9 @@
                                         <label class="form-check-label" for="deliveryMethod1">Pickup</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryMethod2  value="delivery">
+                                        <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryMethod2"  value="delivery">
                                         <label class="form-check-label" for="deliveryMethod2">Home or Office Address</label>
-                                        <p>Kindly note that add additional delivery amount of <span class="color-palace">KSh 200</span>will be added to your total for delivery charges</p>
+                                        <p>Kindly note that add additional delivery amount of <span class="color-palace">Ksh 200</span> will be added to your total for delivery charges</p>
                                     </div>
 
                                     <div class="location mt-5">
@@ -280,6 +280,8 @@
                 </div>
             </div>
         </div>
+        <!--Boostrap JS-->
+        <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
         <!--jQuery CDN-->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <!--Custom JS-->

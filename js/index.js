@@ -13,15 +13,15 @@ const pizzas = [
 //Pizza Sizes
 const pizzaSizes = [
     {
-        size: "small",
+        size: "Small",
         price: 650,
     },
     {
-        size: "medium",
+        size: "Medium",
         price: 850,
     },
     {
-        size: "large",
+        size: "Large",
         price: 1050,
     },
 ];
@@ -29,15 +29,15 @@ const pizzaSizes = [
 //Pizza Crusts
 const pizzaCrusts = [
     {
-        name: "crispy",
+        name: "Crispy",
         price: 150,
     },
     {
-        name: "stuffed",
+        name: "Stuffed",
         price: 200,
     },
     {
-        name: "Glutten free",
+        name: "Glutten Free",
         price: 100,
     },
 ];
@@ -120,6 +120,7 @@ $(function () {
             `<option value="${pizzaCrust.name}">${pizzaCrust.name}-${pizzaCrust.price}</option>`
         );
     });
+
 
     //pizza toppings
     pizzaToppings.forEach((topping) => {
@@ -276,7 +277,7 @@ $(function () {
                     cart.forEach((pizza) => {
                         total += pizza.price;
                     });
-                    const getTotalPlusDeliveryFee = total + 128;
+                    const getTotalPlusDeliveryFee = total + 200;
                     console.log(getTotalPlusDeliveryFee);
                     console.log(cart);
                     $("#select-delivery-method").hide();
@@ -326,7 +327,7 @@ $(function () {
                     console.log(getTotalPlusDeliveryFee);
                     $("#select-delivery-method").hide();
                     $(".delivery-head").append(`
-                    <div class="alert alert-success" role="alert">Hello. Order successfully processed. Your order will be delivered to your location</div>
+                    <div class="alert alert-success" role="alert">Hello. Order successfully processed. Your order will be delivered to your pickup point</div>
                         <div class="d-flex justify-content-between">
                             <div>
                                 <h5>Order Summary</h5>
