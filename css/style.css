@@ -387,3 +387,23 @@ label {
 .empty-cart img {
     height: 100px;
 }
+
+.grand-total {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.d-btn {
+    color: #FFFFFF;
+    border: none;
+    background-color: #ea272d;
+    outline: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+    padding: 0px;
+    text-transform: uppercase;
+}
