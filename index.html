@@ -191,12 +191,97 @@
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <div class="text-end">
+                                    <p class="grand-total">Total Cost: Ksh <span class="text-bold">0</span>
+                                </div>
+
+                                <div class="delivery-button float-end">
+                                    <button class="d-btn" data-bs-toggle="modal" data-bs-target="#deliveryMethodModal">Click to Proceed</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!--Delivery Modal Section-->
+                <div class="modal fade" id="deliveryMethodModal" tabindex="-1" aria-labelledby="deliveryMethodModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deliveryMethodModalLabel">DELIVERY METHOD</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <!-- input modal -->
+                                <div id="select-delivery-method">
+                                    <p>How do you want your order delivered? <span class="text-center">*</span></p>
+                                    <p class="delivery-option text-danger"></p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryMethod1" value="pickup">
+                                        <label class="form-check-label" for="deliveryMethod1">Pickup</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryMethod2  value="delivery">
+                                        <label class="form-check-label" for="deliveryMethod2">Home or Office Address</label>
+                                        <p>Kindly note that add additional delivery amount of <span class="color-palace">KSh 200</span>will be added to your total for delivery charges</p>
+                                    </div>
+
+                                    <div class="location mt-5">
+                                        <form id="delivery-form">
+                                            <div id="location-input-details">
+                                                <h5>Delivery Details</h5>
+                                                <p class="text-danger error-delivery-location"></p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Name <span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" name="name" id="customerName">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                                            <input type="number" class="form-control" name="phone" id="customerPhone">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Location <span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" name="location" id="customerLocation">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Additional Information</label>
+                                                            <textarea name="additionalInfo" class="form-control" id="additionalInfo" rows="2"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="d-btn" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="d-btn" id="checkout-button">Checkout</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                    <!-- div to display the summary of all the orders -->
+                    <div id="summary-order">
+                        <div class="delivery-head"></div>
+                        <div class="delivery-bottom"></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+            </div>
+        </div>
+        <!--jQuery CDN-->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <!--Custom JS-->
         <script src="js/index.js" async defer></script>
     </body>
