@@ -43,7 +43,7 @@ const pizzaCrusts = [
 ];
 
 //Toppings
-const pizzaToppings = ["SweetCorn", "Mozzarella", "Sausage"];
+const pizzaToppings = ["SweetCorn", "Mozarella", "Sausage"];
 
 //Pizza Constructor
 function Pizza(name) {
@@ -83,9 +83,9 @@ Pizza.prototype.setQuantity = function (quantity) {
     this.calculateTotal();
 };
 
-//Pizza Prototype Total
+// Pizza Prototype Total
 Pizza.prototype.calculateTotal = function () {
-    const toppingPrice = 50;
+    const toppingPrice = 100;
 
     if (this.size) {
         this.price = this.size.price;
@@ -95,84 +95,274 @@ Pizza.prototype.calculateTotal = function () {
         this.price = this.price + this.crust.price;
     }
 
-    // add the price of toppings
+    // Add Topping Price
     this.price += this.toppings.length * toppingPrice;
 
     this.price *= this.quantity;
 };
 
-//Appending function
-//pizza names
-pizzas.forEach((pizza) => {
-    $("#pizza").append(`<option value="${pizza.name}">${pizza.name}</option>`);
-});
-
-//pizza sizes
-pizzaSizes.forEach((pizzaSize) => {
-    $("#size").append(
-        `<option value="${pizzaSize.size}">${pizzaSize.size}-${pizzaSize.price}</option>`
-    );
-});
-
-//pizza crusts
-pizzaCrusts.forEach((pizzaCrust) => {
-    $("#crust").append(
-        `<option value="${pizzaCrust.name}">${pizzaCrust.name}-${pizzaCrust.price}</option>`
-    );
-});
-
-//pizza toppings
-pizzaToppings.forEach((topping) => {
-    $(".toppings").append(`<div class="col-md-6">
-    <div class="form-check">
-      <input class="form-check-input" name="toppings[]" type="checkbox" id="${topping}" value="${topping}">
-      <label class="form-check-label" for="${topping}">
-          ${topping}
-      </label>
-      </div>
-    </div>`);
-});
-
-//Calculating Grand Total
-function calculateGrandTotal() {
-    let total = 0;
-    cart.forEach((pizza) => {
-        total += pizza.price;
+//Appending Function
+$(function () {
+    //pizza names
+    pizzas.forEach((pizza) => {
+        $("#pizza").append(`<option value="${pizza.name}">${pizza.name}</option>`);
+    });
+    //pizza sizes
+    pizzaSizes.forEach((pizzaSize) => {
+        $("#size").append(
+            `<option value="${pizzaSize.size}">${pizzaSize.size}-${pizzaSize.price}</option>`
+        );
     });
 
-    $(".grand-total").html(`Ksh <span class="text-bold">${total}</span> `);
+    //pizza crusts
+    pizzaCrusts.forEach((pizzaCrust) => {
+        $("#crust").append(
+            `<option value="${pizzaCrust.name}">${pizzaCrust.name}-${pizzaCrust.price}</option>`
+        );
+    });
 
-}
+    //pizza toppings
+    pizzaToppings.forEach((topping) => {
+        $(".toppings").append(`<div class="col-md-6">
+        <div class="form-check">
+          <input class="form-check-input" name="toppings[]" type="checkbox" id="${topping}" value="${topping}">
+          <label class="form-check-label" for="${topping}">
+              ${topping}
+          </label>
+          </div>
+        </div>`);
+    });
 
-//cart array
-const cart = [];
-    // check if cart is empty
+    //Calculating Grand Total
+    function calculateGrandTotal() {
+        let total = 0;
+        cart.forEach((pizza) => {
+            total += pizza.price;
+        });
+
+        $(".grand-total").html(`Ksh <span class="text-bold">${total}</span> `);
+
+    }
+
+    //Cart Array
+    const cart = [];
+    //Check if cart is empty
     if (cart.length == 0) {
         $(".empty-cart").show();
         $(".delivery-button").hide();
     } else {
         $(".empty-cart").hide();
     }
-
     $("#order-form").on("submit", function (event) {
+        //Prevent Default Action
         event.preventDefault();
+        
+        //Get Selected Values
+        const selectedPizzaName = $("#pizza").val();
+        const selectedSize = $("#size").val();
+        const selectedCrust = $("#crust").val();
+        const selectedToppings = $("input[name='toppings[]']:checkbox:checked")
+            .map(function () {
+                return $(this).val();
+            })
+            .get();
+
+        //Field Validation
+        if (!selectedPizzaName || !selectedSize || !selectedCrust) {
+            $("#error").text("*Flavor, size and crust fields required* ");
+            return;
+        } else {
+            $("#error").text("");
+        }
+
+        //Cart Details
+        //Check if selected pizza exists in cart
+        const cartPizza = cart.find((pizza) => {
+            const sameToppings =
+                JSON.stringify(pizza.toppings) == JSON.stringify(selectedToppings);
+
+            return (
+                pizza.name == selectedPizzaName &&
+                pizza.size.size == selectedSize &&
+                sameToppings
+            );
+        });
+        //Increase Quantity if Exists
+        if (cartPizza) {
+            cartPizza.setQuantity(cartPizza.quantity + 1);
+        } else {
+            const pizza = new Pizza(selectedPizzaName);
+            pizza.setSize(selectedSize);
+            pizza.setCrust(selectedCrust);
+            pizza.setTopings(selectedToppings);
+
+            cart.push(pizza);
+        }
+
+        //Empty table body
+        $(".order-table tbody").html("");
+        //loop and append
+        cart.forEach((pizza, cartIndex) => {
+            $(".order-table tbody").append(`
+            <tr>
+                <td>${pizza.name}</td>
+                <td>${pizza.size.size}</td>
+                <td>${pizza.crust.name}</td>
+                <td>${pizza.toppings.join(", ")}</td>
+                <td>
+                    <input type="number" min="1" class="input-sm form-control pizza-quantity" data-cart-index="${cartIndex}" value="${pizza.quantity
+                }" />
+                </td>
+                <td>Ksh ${pizza.price}</td>
+            </tr>
+        `);
+            //Show proceed button
+            $(".delivery-button").show();
+            // console.log(pizza);
+            //update grand total
+            calculateGrandTotal();
+
+        });
+
     });
 
-    //get selected values
-    const selectedPizzaName = $("#pizza").val();
-    const selectedSize = $("#size").val();
-    const selectedCrust = $("#crust").val();
-    const selectedToppings = $("input[name='toppings[]']:checkbox:checked")
-        .map(function () {
-            return $(this).val();
-        })
-        .get();
+    //Pizza Quantity Change
+    $("body").on("change", ".pizza-quantity", function () {
+        const quantity = $(this).val();
+        const cartIndex = $(this).data("cart-index");
+        const pizza = cart[cartIndex];
 
-    //field validation
-    if (!selectedPizzaName || !selectedSize || !selectedCrust) {
-        $("#error").text("*Flavor, size and crust fields required* ");
-        return;
-    } else {
-        $("#error").text("");
-    }    
+        if (quantity > 0) {
+            pizza.setQuantity(quantity);
+            // update line total
+            $(this).parent().next().html(`Ksh <span class="text-bold">${pizza.price}</span> `);
+        }
+
+        //update grand total
+        calculateGrandTotal();
+    });
+
+    //Delivery Modal
+    $("#delivery-form").on("submit", function (event) {
+        //prevent default action
+        event.preventDefault();
+
+        //Radio Button Selection Validation
+        const selectd = $("input[name='deliveryMethod']:checked");
+        if (selectd.val() == undefined) {
+            $(".delivery-option").html("<p class='text-danger'>*Delivery method required*</p>");
+            return;
+        } else {
+            $(".delivery-option").text("");
+            //Check Selected Radio Button
+            if (selectd.val() == "delivery") {
+                $("#location-input-details").show();
+
+                //Constant User Input Variables
+                const customerName = $("#customerName").val();
+                const customerPhone = $("#customerPhone").val();
+                const customerLocation = $("#customerLocation").val();
+                const additionalInfo = $("#additionalInfo").val();
+
+                //User Input Validation
+                if (!customerName || !customerPhone || !customerLocation) {
+                    $(".error-delivery-location").text("Fill in all input fields with * to proceed!")
+                    return;
+                } else {
+                    $(".error-delivery-location").text("");
+                }
+                function calculateGrandTotal() {
+                    let total = 0;
+                    cart.forEach((pizza) => {
+                        total += pizza.price;
+                    });
+                    const getTotalPlusDeliveryFee = total + 128;
+                    console.log(getTotalPlusDeliveryFee);
+                    console.log(cart);
+                    $("#select-delivery-method").hide();
+                    $(".delivery-head").append(`
+                    <div class="alert alert-success" role="alert">Hello ${customerName}. Order successfully processed. Your order will be delivered to your location(${customerLocation})</div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5>Order Summary</h5>
+                            </div>
+                            <div>
+                                <p class="color-palace float-right">Total Ksh <span class="text-bold">${getTotalPlusDeliveryFee}</span></p>
+                            </div>
+                        </div>
+                    `);
+                    //loop and append
+                    cart.forEach((pizza, cartIndex) => {
+                        $(".delivery-bottom").append(`
+                        <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ol class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">${pizza.name}(${pizza.size.size})</div>
+                                            Crust - ${pizza.crust.name} <br>
+                                            Toppings - ${pizza.toppings.join(", ")}
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">${pizza.quantity}</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                       </div>
+                        `);
+                    });
+
+                }
+                calculateGrandTotal()
+                // $("#deliveryMethodModal").hide();
+            } else if (selectd.val() == "pickup") {
+                function calculateGrandTotal() {
+                    let total = 0;
+                    cart.forEach((pizza) => {
+                        total += pizza.price;
+                    });
+                    const getTotalPlusDeliveryFee = total;
+                    console.log(getTotalPlusDeliveryFee);
+                    $("#select-delivery-method").hide();
+                    $(".delivery-head").append(`
+                    <div class="alert alert-success" role="alert">Hello. Order successfully processed. Your order will be delivered to your location</div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5>Order Summary</h5>
+                            </div>
+                            <div>
+                                <p class="color-palace float-right">Total Ksh <span class="text-bold">${getTotalPlusDeliveryFee}</span></p>
+                            </div>
+                        </div>
+                    `);
+                    //loop and append
+                    cart.forEach((pizza, cartIndex) => {
+                        $(".delivery-bottom").append(`
+                        <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ol class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">${pizza.name}(${pizza.size.size})</div>
+                                            Crust - ${pizza.crust.name} <br>
+                                            Toppings - ${pizza.toppings.join(", ")}
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">${pizza.quantity}</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                       </div>
+                        `);
+                    });
+
+                }
+                calculateGrandTotal()
+            }
+        }
+
+    })
+});
 
