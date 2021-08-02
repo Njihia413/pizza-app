@@ -133,4 +133,46 @@ pizzaToppings.forEach((topping) => {
     </div>`);
 });
 
+//Calculating Grand Total
+function calculateGrandTotal() {
+    let total = 0;
+    cart.forEach((pizza) => {
+        total += pizza.price;
+    });
+
+    $(".grand-total").html(`Ksh <span class="text-bold">${total}</span> `);
+
+}
+
+//cart array
+const cart = [];
+    // check if cart is empty
+    if (cart.length == 0) {
+        $(".empty-cart").show();
+        $(".delivery-button").hide();
+    } else {
+        $(".empty-cart").hide();
+    }
+
+    $("#order-form").on("submit", function (event) {
+        event.preventDefault();
+    });
+
+    //get selected values
+    const selectedPizzaName = $("#pizza").val();
+    const selectedSize = $("#size").val();
+    const selectedCrust = $("#crust").val();
+    const selectedToppings = $("input[name='toppings[]']:checkbox:checked")
+        .map(function () {
+            return $(this).val();
+        })
+        .get();
+
+    //field validation
+    if (!selectedPizzaName || !selectedSize || !selectedCrust) {
+        $("#error").text("*Flavor, size and crust fields required* ");
+        return;
+    } else {
+        $("#error").text("");
+    }    
 
